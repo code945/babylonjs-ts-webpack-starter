@@ -1,5 +1,5 @@
-import * as BABYLON from 'babylonjs'
-import 'babylonjs-loaders';
+import * as BABYLON from '@babylonjs/core'
+import '@babylonjs/loaders';
 
 class Game {
   private _canvas: HTMLCanvasElement;

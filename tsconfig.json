@@ -7,9 +7,15 @@
       "target": "es5",
       "jsx": "react",
       "allowJs": true,
+      "lib": [
+        "es7",
+        "dom"
+      ],
       "types": [
-        "babylonjs", 
-        "babylonjs-loaders",
+        "@babylonjs/core",
+        "@babylonjs/loaders",
+        "@babylonjs/procedural-textures",
+        "@babylonjs/materials"
       ],
     }
   }
