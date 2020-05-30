@@ -32,7 +32,7 @@ module.exports = {
       //{ root: path.resolve(__dirname, '../')}
     ),
     new HtmlWebpackPlugin({
-      title: "首页",
+      title: "美猴王AR",
       filename: "index.html",
       template: 'src/index.html',
       minify: {
