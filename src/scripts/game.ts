@@ -1,4 +1,4 @@
-import "@babylonjs/loaders";
+import "@babylonjs/loaders/glTF";
 import "@babylonjs/core/Materials/Textures/Loaders/envTextureLoader";
 import "@babylonjs/core/Helpers/sceneHelpers";
 import { Engine } from "@babylonjs/core/Engines/engine";
@@ -15,10 +15,8 @@ class Game {
     private _camera: ArcRotateCamera | undefined;
     private _hdrTexture: CubeTexture | undefined;
     constructor(canvasElement: string) {
-        // Create canvas and engine.
         this._canvas = document.getElementById(canvasElement) as HTMLCanvasElement;
         this._engine = new Engine(this._canvas, true);
-        //Set the loading screen in the engine to replace the default one
         this._engine.loadingScreen = new MyLoadingScreen();
         this._engine.enableOfflineSupport = false;
         this._scene = new Scene(this._engine);
