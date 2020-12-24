@@ -5,20 +5,15 @@ import { Engine } from "@babylonjs/core/Engines/engine";
 import { Scene } from "@babylonjs/core/scene";
 import { ArcRotateCamera } from "@babylonjs/core/Cameras/ArcRotateCamera";
 import { CubeTexture } from "@babylonjs/core/Materials/Textures/cubeTexture";
-import {
-    AssetsManager,
-    MeshAssetTask,
-    BinaryFileAssetTask,
-    CubeTextureAssetTask,
-} from "@babylonjs/core/Misc/assetsManager";
+import { AssetsManager, CubeTextureAssetTask } from "@babylonjs/core/Misc/assetsManager";
 
 import { ILoadingScreen } from "@babylonjs/core/Loading";
 class Game {
     private _canvas: HTMLCanvasElement;
     private _engine: Engine;
     private _scene: Scene;
-    private _camera: ArcRotateCamera;
-    private _hdrTexture: CubeTexture;
+    private _camera: ArcRotateCamera | undefined;
+    private _hdrTexture: CubeTexture | undefined;
     constructor(canvasElement: string) {
         // Create canvas and engine.
         this._canvas = document.getElementById(canvasElement) as HTMLCanvasElement;
@@ -26,12 +21,11 @@ class Game {
         //Set the loading screen in the engine to replace the default one
         this._engine.loadingScreen = new MyLoadingScreen();
         this._engine.enableOfflineSupport = false;
+        this._scene = new Scene(this._engine);
     }
 
     init(): void {
-        // Create a basic BJS Scene object.
         let scope = this;
-        this._scene = new Scene(this._engine);
         //this._scene.clearColor = new Color4(0.0, 0.0, 0.0, 0);
         this._scene.imageProcessingConfiguration.contrast = 1.0;
         this._scene.imageProcessingConfiguration.exposure = 1.0;

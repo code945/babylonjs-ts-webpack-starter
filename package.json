@@ -4,8 +4,11 @@
     "description": "a starter project for babylonjs using typescript + webpack",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack-dev-server --config build/webpack.dev.js",
-        "build": "webpack --config build/webpack.prod.js"
+        "check": "tsc --noEmit --pretty",
+        "check:watch": "npm run check -- --watch",
+        "build:types": "tsc --emitDeclarationOnly",
+        "dev": "webpack-dev-server --progress --config build/webpack.dev.js",
+        "build": "webpack --progress --config build/webpack.prod.js"
     },
     "repository": {
         "type": "git",
@@ -36,7 +39,14 @@
         "typescript": "^3.0.3",
         "webpack": "^4.17.2",
         "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.7"
+        "webpack-dev-server": "^3.1.7",
+        "@babel/core": "7.12.10",
+        "@babel/plugin-proposal-class-properties": "7.12.1",
+        "@babel/plugin-proposal-object-rest-spread": "7.12.1",
+        "@babel/preset-env": "7.12.11",
+        "@babel/preset-typescript": "7.12.7",
+        "babel-loader": "8.2.2",
+        "fork-ts-checker-webpack-plugin": "6.0.7"
     },
     "dependencies": {
         "@babylonjs/core": "^4.0.3",

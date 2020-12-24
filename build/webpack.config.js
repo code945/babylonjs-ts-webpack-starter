@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 // copies the assets folder into dist folder
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const distFolder = "../dist";
 
 let entryPoints = {
@@ -37,6 +37,7 @@ module.exports = {
         path: path.resolve(__dirname, distFolder),
     },
     plugins: [
+        new ForkTsCheckerWebpackPlugin(),
         require("autoprefixer"),
         new MiniCssExtractPlugin({
             filename: "css/[hash:5].css",
@@ -45,10 +46,7 @@ module.exports = {
             },
         }),
         new Webpack.HotModuleReplacementPlugin(),
-        new CleanWebpackPlugin(
-            distFolder
-            //{ root: path.resolve(__dirname, '../')}
-        ),
+        new CleanWebpackPlugin(["dist"], { root: path.resolve(__dirname, "../") }),
         new CopyWebpackPlugin([
             {
                 from: "src/static",
@@ -59,11 +57,7 @@ module.exports = {
     ],
     module: {
         rules: [
-            {
-                test: /\.tsx?$/,
-                use: "ts-loader",
-                exclude: /node_modules/,
-            },
+            { test: /\.(ts|js)x?$/, loader: "babel-loader", exclude: /node_modules/ },
             {
                 test: /\.css$/,
                 use: [

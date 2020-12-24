@@ -1,13 +1,19 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
+        "allowSyntheticDefaultImports": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "esModuleInterop": true,
+        "noUnusedLocals": true,
         "noImplicitAny": true,
-        "module": "commonjs",
-        "target": "esnext",
-        "jsx": "react",
+        "target": "es2015",
+        "module": "esNext",
+        "moduleResolution": "node",
         "allowJs": true,
         "lib": ["es7", "dom"],
         "types": ["@babylonjs/core", "@babylonjs/loaders", "@babylonjs/procedural-textures", "@babylonjs/materials"]
-    }
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
 }
