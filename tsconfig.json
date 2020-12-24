@@ -1,21 +1,13 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/",
-      "sourceMap": true,
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "jsx": "react",
-      "allowJs": true,
-      "lib": [
-        "es7",
-        "dom"
-      ],
-      "types": [
-        "@babylonjs/core",
-        "@babylonjs/loaders",
-        "@babylonjs/procedural-textures",
-        "@babylonjs/materials"
-      ],
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react",
+        "allowJs": true,
+        "lib": ["es7", "dom"],
+        "types": ["@babylonjs/core", "@babylonjs/loaders", "@babylonjs/procedural-textures", "@babylonjs/materials"]
     }
-  }
+}
